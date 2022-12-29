@@ -30,16 +30,16 @@ req.end(function (res) {
     final response = await http.get(uri, headers: {
       "X-RapidAPI-Key": "1af9e36c00msh99f525155f26263p1c4d8bjsnaecf024205ff",
       "X-RapidAPI-Host": "yummly2.p.rapidapi.com",
-      "useQueryString": "true",
+      "useQueryString": "true"
     });
-
     Map data = jsonDecode(response.body);
-    List _temp = [];
+    print(data);
+    List temp = [];
 
     for (var i in data['feed']) {
-      _temp.add(i['content']['details']);
+      temp.add(i['content']['details']);
     }
 
-    return Recipe.recipesFromSnapshot(_temp);
+    return Recipe.recipesFromSnapshot(temp);
   }
 }

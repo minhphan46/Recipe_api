@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Recipe>? _recipes;
+  List<Recipe> _recipes = [];
   bool _isLoading = true;
 
   @override
@@ -25,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       _isLoading = false;
     });
+    print("adassdasdasdasdasdasdas");
     print(_recipes);
   }
 
