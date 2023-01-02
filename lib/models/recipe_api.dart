@@ -33,7 +33,7 @@ req.end(function (res) {
       "useQueryString": "true"
     });
     Map data = jsonDecode(response.body);
-    print(data);
+
     List temp = [];
 
     for (var i in data['feed']) {
