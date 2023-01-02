@@ -11,22 +11,29 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Recipe> _recipes = [];
+  List<Recipe> _recipes = [
+    Recipe(name: "", images: "", rating: 1.0, totalTime: ""),
+  ];
   bool _isLoading = true;
-
-  @override
-  void initState() {
-    getRecipes();
-    super.initState();
-  }
 
   Future<void> getRecipes() async {
     _recipes = await RecipeApi.getRecipe();
     setState(() {
       _isLoading = false;
     });
-    print("adassdasdasdasdasdasdas");
-    print(_recipes);
+    print("recipes : ${_recipes}");
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    getRecipes();
+    super.didChangeDependencies();
   }
 
   @override
